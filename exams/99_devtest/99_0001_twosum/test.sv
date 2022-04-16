@@ -10,8 +10,13 @@ module exam_checker();
     wire uo;
 
     // user is correct?
-    wire correct;
-    assign correct = ao & uo;
+    wire mismatch;
+    reg failed = 0;
+    assign mismatch = ao ^ uo;
+    always @(posedge mismatch) begin
+        failed = 1;
+        $display("MisMatch!");
+    end
 
     answer aa(a, b, ao);
     user_answer ua(a, b, uo);
@@ -24,6 +29,7 @@ module exam_checker();
         #10 b = 1;
         #3 a = 0;
         #2;
+        $display("Sim Done!");
     end
 
 endmodule
