@@ -1,6 +1,9 @@
 
-typedef unsigned long long LOGSIGNAL;
-typedef unsigned char* LOGNAME;
+#ifndef __LOGGER_H__
+#define __LOGGER_H__
+
+typedef long long LOGSIGNAL;
+typedef char* LOGNAME;
 enum LOGTYPE{
     LOGTYPE_INPUT,
     LOGTYPE_OUTPUT_EXPECT,
@@ -8,10 +11,12 @@ enum LOGTYPE{
     LOGTYPE_MISMATCH,
 
     LOGTYPE_ALL,
-} ;
-
-struct LOGCONTENT {
-    enum LOGTYPE type;
-    LOGNAME name;
-    LOGSIGNAL signal;
 };
+
+typedef struct {
+    enum LOGTYPE LogType;
+    LOGNAME LogName;
+    LOGSIGNAL LogValue;
+} LogItem;
+
+#endif //__LOGGER_H__
