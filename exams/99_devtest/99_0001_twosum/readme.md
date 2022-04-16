@@ -3,5 +3,5 @@
 for develop ci
 
 ``` verilog
-out = a + b
+out = a & b
 ```
