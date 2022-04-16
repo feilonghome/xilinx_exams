@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
+import "C"
 
-func main() {
-	fmt.Println("helloworld");
+//export Version
+func Version() {
+	fmt.Println("v0.0.1");
 }

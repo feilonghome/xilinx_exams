@@ -1,3 +1,3 @@
-module wavedrom
+module libwavedrom
 
 go 1.18
