@@ -10,3 +10,5 @@ xelab*
 xsim*
 *.wdb
 *.log
+wave.json
+wave.svg
