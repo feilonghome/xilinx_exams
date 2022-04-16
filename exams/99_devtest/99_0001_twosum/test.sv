@@ -1,5 +1,47 @@
 
+// class WaveLogger;
+//     function new();
+//         $error("unimmplement method");
+//     endfunction //new()
+
+//     function LogBit(string name, logic signal);
+//         $error("unimmplement method");
+//     endfunction //LogBit
+
+//     function Save();
+//         $error("unimmplement method");
+//     endfunction //Save
+// endclass //WaveLogger
+
+class JsonWaveLogger;
+    integer fd;
+
+    function new();
+        $display("create file");
+        fd = $fopen("wave.json","w");
+    endfunction //new()
+
+    function LogBit(string name, logic signal);
+        // map[name] = signal
+    endfunction
+
+    function _serialize();
+        $display("serialize file");
+        $fdisplay(fd, "{signal:[{name:'a',wave:'1.........'},{name:'b',wave:'0.........'},{},{name:'user',wave:'1.........'},{name:'exp',wave:'1.........'},{},{name:'mismatch',wave:'0.........'}]}");
+    endfunction
+
+    function Save();
+        _serialize();
+        $display("close file");
+        $fclose(fd);
+    endfunction
+endclass //JsonWaveLogger extends WaveLogger
+
+// logger
+// WaveLogger logger = _logger;
+
 module exam_checker();
+    JsonWaveLogger _logger = new;
     // input
     reg a,b;
 
@@ -30,6 +72,8 @@ module exam_checker();
         #3 a = 0;
         #2;
         $display("Sim Done!");
+
+        _logger.Save();
     end
 
 endmodule

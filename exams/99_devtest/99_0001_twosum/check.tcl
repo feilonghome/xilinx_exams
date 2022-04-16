@@ -13,4 +13,9 @@ synth_design -top exam_checker
 #simulate
 exec xvlog --sv ./exams/99_devtest/99_0001_twosum/user.sv ./exams/99_devtest/99_0001_twosum/answer.sv ./exams/99_devtest/99_0001_twosum/test.sv
 exec xelab -debug typical exam_checker
-exec xsim --t simulate.tcl exam_checker
+exec xsim --t ./exams/99_devtest/99_0001_twosum/simulate.tcl exam_checker
+
+# drawdrom
+exec wavedrom-cli -i wave.json -s wave.svg
+
+quit

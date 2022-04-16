@@ -1,4 +1,4 @@
 
 run 50ns
-log_wave  [get_objects /*]
+log_wave -r [get_objects /*]
 quit
