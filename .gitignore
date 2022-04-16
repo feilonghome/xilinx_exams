@@ -5,3 +5,8 @@
 # ignore vivado works area
 .Xil
 vivado*
+xvlog*
+xelab*
+xsim*
+*.wdb
+*.log
