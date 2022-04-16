@@ -1,0 +1,8 @@
+
+#ignore compile folder
+/build
+
+# ignore vivado works area
+.Xil
+vivado.jou
+vivado.log
