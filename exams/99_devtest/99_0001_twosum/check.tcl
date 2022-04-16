@@ -1,19 +1,18 @@
 #!/usr/bin/env -S vivado -mode tcl -source
 
 # configs
-set outputDir ./build/
 set_part xc7a100tfgg484-2
 
 # load sources
-read_verilog [ glob ./exams/99_devtest/99_0001_twosum/*.sv ]
+read_verilog [ glob ../*.sv ]
 
 # compile
 synth_design -top exam_checker
 
 #simulate
-exec xvlog --sv ./exams/99_devtest/99_0001_twosum/user.sv ./exams/99_devtest/99_0001_twosum/answer.sv ./exams/99_devtest/99_0001_twosum/test.sv
+exec xvlog --sv ../user.sv ../answer.sv ../test.sv
 exec xelab -debug typical exam_checker
-exec xsim --t ./exams/99_devtest/99_0001_twosum/simulate.tcl exam_checker
+exec xsim --t ../simulate.tcl exam_checker
 
 # drawdrom
 exec wavedrom-cli -i wave.json -s wave.svg
