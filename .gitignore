@@ -1,8 +1,7 @@
 
 #ignore compile folder
-/build
+/build*
 
 # ignore vivado works area
 .Xil
-vivado.jou
-vivado.log
+vivado*
